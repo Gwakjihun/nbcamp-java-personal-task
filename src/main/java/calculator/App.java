@@ -19,7 +19,38 @@ public class App {
         /* char(idx) : charAt 메서드는 매개변수로 char 타입으로 반환 하고자하는 문자열의 위치(index)를 받는다 */
         char operation = sc.next().charAt(0);
 
-        System.out.println("operation = " + operation);
+        int result = 0; // 연산 결과를 저장할 변수 선언 및 초기화
+        boolean isError = false; // 오류 발생 여부 체크 (플래그 변수) → 처음에는 오류가 없다고 가정 (false)
 
+        // 하나의 값에 대해 여러 case를 나누는 구조이기 때문에 if 보다는 swich를 사용함.(비교,논리면 if 사용)
+        switch (operation) {
+            case '+':
+                result = num1 + num2; // 덧셈
+                break;
+            case '-':
+                result = num1 - num2; // 뺄셈
+                break;
+            case '*':
+                result = num1 * num2; // 곱셈
+                break;
+            case '/':
+                if (num2 == 0) {
+                    // 나눗셈에서 분모가 0일 경우 오류 메시지 출력
+                    System.out.println("나눗셈 연산에서 분모(두 번째 정수)에 0이 입력될 수 없습니다.");
+                    isError = true;
+                } else {
+                    result = num1 / num2; // 나눗셈 수행
+                }
+                break;
+            default:
+                // 사칙연산 외의 기호가 입력된 경우
+                System.out.println("잘못된 연산자입니다. (+, -, *, / 중 하나를 입력하세요)");
+                isError = true;
+        }
+
+        // 오류가 없을 경우에만 결과 출력 (isError == false)
+        if (!isError) {
+            System.out.println("계산 결과: " + result);
+        }
     }
 }
