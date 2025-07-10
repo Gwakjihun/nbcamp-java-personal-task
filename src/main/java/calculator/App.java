@@ -59,7 +59,7 @@ public class App {
             // 오류가 없을 경우에만 결과 출력 (isError == false)
             if (!isError) {
                 System.out.println("결과: " + result);
-                // 리스트에 연산 결과 추가
+                // 리스트에 연산 결과 저장
                 results.add(result);
             }
 
@@ -72,6 +72,21 @@ public class App {
                     System.out.println("삭제된 연산 결과: " + removed);
                 } else {
                     System.out.println("삭제할 연산 결과가 없습니다.");
+                }
+            }
+
+            // inquiry 입력 여부 확인
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String inquiryInput = sc.next();
+
+            if (inquiryInput.equalsIgnoreCase("inquiry")) {
+                if (!results.isEmpty()) {
+                    System.out.println("저장된 연산 결과 목록:");
+                    for (int r : results) {
+                        System.out.println(r);
+                    }
+                } else {
+                    System.out.println("저장된 연산 결과가 없습니다.");
                 }
             }
 
