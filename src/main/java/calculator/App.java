@@ -63,7 +63,11 @@ public class App {
                     results[resultIndex] = result;
                     resultIndex++;
                 } else  {
-                    System.out.println("결과 저장 공간이 부족합니다. 최대 10개까지 저장됩니다.");
+                    // 배열이 가득 찬 경우 : FIFO 방식 적용
+                    for (int i = 0; i < results.length - 1; i++) {
+                        results[i] = results[i + 1]; // 한 칸씩 앞으로 이동
+                    }
+                    results[results.length - 1] = result; //  results[9]에 새 값 저장
                 }
             }
 
