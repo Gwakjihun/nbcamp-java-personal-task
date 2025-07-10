@@ -18,8 +18,19 @@ public class App {
 
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int num1 = sc.nextInt(); // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
+            // 음수는 입력 불가
+            if (num1 < 0) {
+                System.out.println("양의 정수(0 포함)을 입력해주세요.");
+                continue;
+            }
+
             System.out.print("두 번째 숫자를 입력하세요: ");
             int num2 = sc.nextInt(); // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
+            // 음수는 입력 불가
+            if (num2 < 0) {
+                System.out.println("양의 정수(0 포함)을 입력해주세요.");
+                continue;
+            }
 
             System.out.print("사칙연산의 기호를 입력하세요: "); // +, -, *, /
             // String operator = sc.next();
