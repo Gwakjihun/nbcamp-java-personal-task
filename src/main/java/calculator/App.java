@@ -6,6 +6,10 @@ public class App {
 
     public static void main(String[] args) {
 
+        // 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다.
+        int[] results = new int[10];
+        int resultIndex = 0;
+
         Scanner sc = new Scanner(System.in);
 
         // 반복 횟수가 명확할 때 : for, 조건이 true일 때: while
@@ -25,7 +29,7 @@ public class App {
             int result = 0; // 연산 결과를 저장할 변수 선언 및 초기화
             boolean isError = false; // 오류 발생 여부 체크 (플래그 변수) → 처음에는 오류가 없다고 가정 (false)
 
-            // 하나의 값에 대해 여러 case를 나누는 구조이기 때문에 if 보다는 swich를 사용함.(비교,논리면 if 사용)
+            // 하나의 값에 대해 여러 case를 나누는 구조이기 때문에 if 보다는 switch를 사용함.(비교,논리면 if 사용)
             switch (operation) {
                 case '+':
                     result = num1 + num2; // 덧셈
@@ -54,6 +58,13 @@ public class App {
             // 오류가 없을 경우에만 결과 출력 (isError == false)
             if (!isError) {
                 System.out.println("결과: " + result);
+                // 결과 저장
+                if(resultIndex < results.length) {
+                    results[resultIndex] = result;
+                    resultIndex++;
+                } else  {
+                    System.out.println("결과 저장 공간이 부족합니다. 최대 10개까지 저장됩니다.");
+                }
             }
 
             // exit 입력 여부 확인
