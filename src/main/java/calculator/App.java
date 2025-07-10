@@ -1,14 +1,15 @@
 package calculator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
 
-        // 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다.
-        int[] results = new int[10];
-        int resultIndex = 0;
+        // 연산 결과를 무한히 저장할 있는 List 생성
+        List<Integer> results = new ArrayList<>();
 
         Scanner sc = new Scanner(System.in);
 
@@ -58,16 +59,19 @@ public class App {
             // 오류가 없을 경우에만 결과 출력 (isError == false)
             if (!isError) {
                 System.out.println("결과: " + result);
-                // 결과 저장
-                if(resultIndex < results.length) {
-                    results[resultIndex] = result;
-                    resultIndex++;
-                } else  {
-                    // 배열이 가득 찬 경우 : FIFO 방식 적용
-                    for (int i = 0; i < results.length - 1; i++) {
-                        results[i] = results[i + 1]; // 한 칸씩 앞으로 이동
-                    }
-                    results[results.length - 1] = result; //  results[9]에 새 값 저장
+                // 리스트에 연산 결과 추가
+                results.add(result);
+            }
+
+            // remove 입력 시 가장 먼저 저장된 연산 결과 삭제
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String removeInput = sc.next();
+            if (removeInput.equalsIgnoreCase("remove")) {
+                if (!results.isEmpty()) {
+                    int removed = results.remove(0); // 가장 오래된 값 삭제
+                    System.out.println("삭제된 연산 결과: " + removed);
+                } else {
+                    System.out.println("삭제할 연산 결과가 없습니다.");
                 }
             }
 
