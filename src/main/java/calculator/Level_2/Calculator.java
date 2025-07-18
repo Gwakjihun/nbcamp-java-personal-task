@@ -9,7 +9,7 @@ public class Calculator {
     private List<Integer> results = new ArrayList<>();
 
     // 연산 결과 조회용 getter
-    public  List<Integer> getResult() {
+    public  List<Integer> getResults() {
         return results;
     }
 
