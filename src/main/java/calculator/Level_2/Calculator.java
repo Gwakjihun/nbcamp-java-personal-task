@@ -8,13 +8,7 @@ public class Calculator {
     // 연산 결과를 저장하는 컬렉션 필드를 private로 캡슐화
     private List<Integer> results = new ArrayList<>();
 
-//      사칙연산 수행
-//      @param num1 첫 번째 양의 정수 (0 포함)
-//      @param num2 두 번째 양의 정수 (0 포함)
-//      @param operator 사칙연산 기호 (+, -, *, /)
-//      @return 계산 결과 값 (int)
-//      @throws IllegalArgumentException 유효하지 않은 연산자나 0으로 나누는 경우
-
+    // 사칙연산 수행
     public int calculate(int num1, int num2, char operator) {
         int result;
 
@@ -50,6 +44,14 @@ public class Calculator {
     // Setter 메서드
     public void setResults(List<Integer> newResults) {
         this.results = newResults;
+    }
+
+    // remove 기능
+    public Integer removeResult() {
+        if (!results.isEmpty()) {
+            return results.remove(0);
+        }
+        return null;
     }
 }
 
