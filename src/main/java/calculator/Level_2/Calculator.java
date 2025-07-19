@@ -36,16 +36,6 @@ public class Calculator {
         return result;
     }
 
-    // Getter 메서드
-    public  List<Integer> getResults() {
-        return results;
-    }
-
-    // Setter 메서드
-    public void setResults(List<Integer> newResults) {
-        this.results = newResults;
-    }
-
     // remove 기능
     public Integer removeResult() {
         if (!results.isEmpty()) {
