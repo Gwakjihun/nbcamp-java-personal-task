@@ -6,7 +6,12 @@ import java.util.List;
 public class Calculator {
 
     // 연산 결과를 저장하는 컬렉션 필드를 private로 캡슐화
-    private List<Integer> results = new ArrayList<>();
+    private List<Integer> results;
+
+    // 생성자에서 컬렉션 초기화
+    public Calculator() {
+        this.results = new ArrayList<>();
+    }
 
     // 사칙연산 수행
     public int calculate(int num1, int num2, char operator) {

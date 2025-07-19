@@ -6,7 +6,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        // Calculator 인스턴스 생성
+        // Calculator 객체 생성 시 생성자에게 결과 리스트 초기화됨
         Calculator calculator = new Calculator();
         Scanner sc = new Scanner(System.in);
 
