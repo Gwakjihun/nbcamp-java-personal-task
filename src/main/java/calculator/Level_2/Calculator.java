@@ -5,13 +5,8 @@ import java.util.List;
 
 public class Calculator {
 
-    // 연산 결과를 무한히 저장하는 컬렉션
+    // 연산 결과를 저장하는 컬렉션 필드를 private로 캡슐화
     private List<Integer> results = new ArrayList<>();
-
-    // 연산 결과 조회용 getter
-    public  List<Integer> getResults() {
-        return results;
-    }
 
 //      사칙연산 수행
 //      @param num1 첫 번째 양의 정수 (0 포함)
@@ -45,6 +40,16 @@ public class Calculator {
 
         results.add(result); // 결과 저장
         return result;
+    }
+
+    // Getter 메서드
+    public  List<Integer> getResults() {
+        return results;
+    }
+
+    // Setter 메서드
+    public void setResults(List<Integer> newResults) {
+        this.results = newResults;
     }
 }
 

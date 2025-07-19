@@ -1,6 +1,5 @@
 package calculator.Level_2;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -43,10 +42,12 @@ public class App {
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String removeInput = sc.next();
             if (removeInput.equalsIgnoreCase("remove")) {
-                List<Integer> results = calculator.getResults();
+                List<Integer> results = calculator.getResults(); // Getter 사용
                 if (!results.isEmpty()) {
                     int removed = results.remove(0); // 가장 오래된 값 삭제
                     System.out.println("삭제된 연산 결과: " + removed);
+                    // Setter 사용
+                    calculator.setResults(results);
                 } else {
                     System.out.println("삭제할 연산 결과가 없습니다.");
                 }
@@ -57,7 +58,7 @@ public class App {
             String inquiryInput = sc.next();
 
             if (inquiryInput.equalsIgnoreCase("inquiry")) {
-                List<Integer> results = calculator.getResults();
+                List<Integer> results = calculator.getResults(); // Getter 사용
                 if (!results.isEmpty()) {
                     System.out.println("저장된 연산 결과 목록:");
                     for (int r : results) {
