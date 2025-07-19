@@ -53,5 +53,17 @@ public class Calculator {
         }
         return null;
     }
+
+    // inquiry 기능
+    public void inquiryResults() {
+        if (results.isEmpty()) {
+            System.out.println("저장된 연산 결과가 없습니다.");
+        } else {
+            System.out.println("저장된 연산 결과 목록:");
+            for (int result : results) {
+                System.out.println(result);
+            }
+        }
+    }
 }
 

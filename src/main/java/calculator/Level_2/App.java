@@ -53,17 +53,8 @@ public class App {
             // inquiry 기능
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             String inquiryInput = sc.next();
-
             if (inquiryInput.equalsIgnoreCase("inquiry")) {
-                List<Integer> results = calculator.getResults(); // Getter 사용
-                if (!results.isEmpty()) {
-                    System.out.println("저장된 연산 결과 목록:");
-                    for (int r : results) {
-                        System.out.println(r);
-                    }
-                } else {
-                    System.out.println("저장된 연산 결과가 없습니다.");
-                }
+                calculator.inquiryResults(); // Calculator 내부 메서드 호출 (캡슐화 적용)
             }
 
             // exit 종료 기능
